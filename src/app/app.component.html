@@ -1,0 +1,84 @@
+<div class="app container">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Clients</a>
+                </div>
+                <div class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Instant search..." (input)="onSearch($event)" />
+                    </div>
+                </div>
+            </div>
+        </nav>        
+    </header>
+
+    <div class="app__content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="app__sidebar">
+                    <div class="app__list list-group container-fluid">
+                        <a class="app__list-item list-group-item row" *ngFor="let client of filteredClients" (click)="onCardClick(client)">
+                            <span class="app__list-icon col-xs-3">
+                                <img class="app__list-img" src="{{client.general.avatar}}" />
+                            </span>
+                            <span class="col-xs-9">
+                                <h4 class="list-group-item-heading">
+                                    {{client.general.firstName}}
+                                    {{client.general.lastName}}
+                                </h4>
+                                <p class="list-group-item-text">
+                                    {{client.job.title}}
+                                </p>
+                                <p class="list-group-item-text">
+                                    {{client.job.company}}
+                                </p>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="app__card col-sm-8">
+
+                <div class="col-sm-3">
+                    <img class="app__card-img" src="{{currentClient.general.avatar}}" />
+                </div>
+                <div class="col-sm-9">
+                    <h3>
+                        {{currentClient.general.firstName}}
+                        {{currentClient.general.lastName}}
+                    </h3>
+                    <blockquote>
+                        <p class="list-group-item-text">{{currentClient.job.title}}</p>
+                        <p class="list-group-item-text">{{currentClient.job.company}}</p>
+                    </blockquote>
+
+                    <h4>
+                        Contact Info
+                    </h4>
+                    <p>
+                        <i class="app__card-contact-icon glyphicon glyphicon-phone-alt"></i>
+                        {{currentClient.contact.phone}}
+                        <br>
+                        <i class="app__card-contact-icon glyphicon glyphicon-envelope"></i>
+                        {{currentClient.contact.email}}
+                    </p>
+
+                    <hr/>
+                    <h4>
+                        Address
+                    </h4>
+                    <p>
+                        {{currentClient.address.street}} <br/>
+                        {{currentClient.address.city}} <br/>
+                        {{currentClient.address.country}} <br/>
+                        {{currentClient.address.zipCode}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
