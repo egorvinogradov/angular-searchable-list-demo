@@ -1,0 +1,22 @@
+<div class="app container">
+
+    <header
+        [currentClient]="currentClient"
+        (notifyBackClick)="onClientSelect(null)"
+        (notifySearch)="onSearch($event)">
+    </header>
+
+    <div class="app__content">
+        <div class="row">
+
+            <div class="col-sm-6 col-md-4 hidden-xs-" [ngClass]="{'hidden-xs': currentClient}">
+                <sidebar (notify)="onClientSelect($event)" [filteredClients]="filteredClients"></sidebar>
+            </div>
+
+            <div class="app__main col-sm-6 col-md-8 hidden-xs-" [ngClass]="{'hidden-xs': !currentClient}">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+    </div>
+</div>

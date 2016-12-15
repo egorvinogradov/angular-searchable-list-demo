@@ -1,0 +1,43 @@
+<div class="app__card">
+
+    <div *ngIf="currentClient.general.firstName">
+        <div class="col-xs-10 col-sm-7 col-md-3">
+            <img class="app__card-img" src="{{currentClient.general.avatar}}" />
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9">
+            <h3>
+                {{currentClient.general.firstName}}
+                {{currentClient.general.lastName}}
+            </h3>
+            <blockquote>
+                <p class="list-group-item-text">{{currentClient.job.title}}</p>
+                <p class="list-group-item-text">{{currentClient.job.company}}</p>
+            </blockquote>
+            <h4>
+                Contact Info
+            </h4>
+            <p>
+                <i class="app__card-contact-icon glyphicon glyphicon-phone-alt"></i>
+                {{currentClient.contact.phone}}
+                <br>
+                <i class="app__card-contact-icon glyphicon glyphicon-envelope"></i>
+                {{currentClient.contact.email}}
+            </p>
+            <hr/>
+            <h4>
+                Address
+            </h4>
+            <p>
+                {{currentClient.address.street}} <br/>
+                {{currentClient.address.city}} <br/>
+                {{currentClient.address.country}} <br/>
+                {{currentClient.address.zipCode}}
+            </p>
+        </div>
+    </div>
+
+    <div class="app__card-placeholder" *ngIf="!currentClient.general.firstName">
+        Please select a customer
+    </div>
+
+</div>

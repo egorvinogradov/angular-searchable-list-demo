@@ -1,0 +1,21 @@
+// Import Boostrap
+@import 'node_modules/bootstrap/dist/css/bootstrap.min';
+
+// Rewrite Boostrap font paths
+$font-path: node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular;
+@font-face
+  font-family: 'Glyphicons Halflings';
+  src: url("#{$font-path}.eot");
+  src: url("#{$font-path}.eot?#iefix") format('embedded-opentype'), url("#{$font-path}.woff2") format('woff2'), url("#{$font-path}.woff") format('woff'), url("#{$font-path}.ttf") format('truetype'), url("#{$font-path}.svg#glyphicons_halflingsregular") format('svg');
+
+// App styles
+.app
+    font: 14px/18px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif
+    padding-top: 15px
+
+.app__main
+    padding: 0
+
+@media (max-width: 767px)
+    .app__content
+        padding-top: 50px

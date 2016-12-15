@@ -1,0 +1,34 @@
+<div>
+    <nav class="navbar navbar-default hidden-xs">
+        <div class="container-fluid">
+            <div class="app__header-form--desktop navbar-form navbar-left">
+                <div class="form-group">
+                    <input class="app__header-input--desktop form-control"
+                        placeholder="Instant search..."
+                        (input)="onSearch($event)" />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-default navbar-fixed-top visible-xs-block">
+        <div class="container-fluid">
+
+            <div class="navbar-header" *ngIf="currentClient">
+                <a class="navbar-brand" [routerLink]="['/']" (click)="onBackButton()">
+                    <i class="glyphicon glyphicon-menu-left"></i>
+                    Clients
+                </a>
+            </div>
+
+            <div class="app__header-form--mobile navbar-form navbar-left" *ngIf="!currentClient">
+                <div class="form-group">
+                    <input class="form-control"
+                        placeholder="Instant search..."
+                        (input)="onSearch($event)" />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</div>

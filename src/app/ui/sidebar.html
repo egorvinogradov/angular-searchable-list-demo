@@ -1,0 +1,24 @@
+<div class="app__sidebar">
+    <div class="app__list list-group container-fluid">
+        <a class="app__list-item list-group-item row"
+            *ngFor="let client of filteredClients"
+            [routerLink]="['/client/' + client.general.firstName + '-' + client.general.lastName]"
+            (click)="onClientSelect(client)">
+            <span class="app__list-icon col-xs-3">
+                <img class="app__list-img" src="{{client.general.avatar}}" />
+            </span>
+            <span class="col-xs-9">
+                <h4 class="list-group-item-heading">
+                    {{client.general.firstName}}
+                    {{client.general.lastName}}
+                </h4>
+                <p class="list-group-item-text">
+                    {{client.job.title}}
+                </p>
+                <p class="list-group-item-text">
+                    {{client.job.company}}
+                </p>
+            </span>
+        </a>
+    </div>
+</div>

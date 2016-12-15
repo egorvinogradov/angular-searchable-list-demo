@@ -32,9 +32,10 @@ module: {
             loader: 'file?name=assets/[name].[hash].[ext]'
         },
         {
-           test: /\.css$/,
-           loaders: ['to-string-loader', 'css-loader']
-        }
+            test: /\.sass$/,
+            exclude: /node_modules/,
+            loaders: ['raw-loader', 'sass-loader']
+        },
     ]},
     
     plugins: [
